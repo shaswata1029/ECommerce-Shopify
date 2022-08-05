@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node backend/server.js",
     "dev": "nodemon backend/server.js",
-    "heroku-postbuild": "cd frontend && npm install && npm update"
+    "heroku-postbuild": "cd frontend && npm install"
   },
   "author": "Shaswata Raha",
   "license": "ISC",
