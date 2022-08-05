@@ -37,6 +37,8 @@ const Payment = () => {
 
   const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
 
+  const serverLink = "https://ecommerce-shopify-backend.herokuapp.com";
+
   const paymentData = {
     amount: Math.round(orderInfo.totalPrice * 100),
   };
@@ -62,13 +64,13 @@ const Payment = () => {
       };
 
       const { data } = await axios.post(
-        `/api/v1/payment/process`,
+        `${serverLink}/api/v1/payment/process`,
         paymentData,
         config
       );
 
       const client_secret = data.client_secret;
-      console.log(client_secret);
+      // console.log(client_secret);
 
       if (!stripe || !elements) return;
 
