@@ -89,7 +89,9 @@ module.exports.forgetPassword = catchAsyncErrors(async (req, res, next) => {
 
   console.log(resetToken);
 
-  const resetPasswordURL = `${process.env.CLIENT_LINK}/password/reset/${resetToken}`;
+  const resetPasswordURL = `${req.protocol}://${req.get(
+    "host"
+  )}/password/reset/${resetToken}`;
 
   const message = `Your password reset token is :\n\n ${resetPasswordURL} \n\n If you have not requested this email then,please ignore it`;
 
