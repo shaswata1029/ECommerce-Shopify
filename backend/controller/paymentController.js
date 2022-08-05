@@ -3,8 +3,9 @@ const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 
 module.exports.processPayment = catchAsyncErrors(async (req, res, next) => {
+  const data = JSON.parse(req.body);
   const myPayment = await stripe.paymentIntents.create({
-    amount: req.body.amount,
+    amount: data.amount,
     currency: "inr",
     metadata: {
       company: "Shopify Ecommerce",

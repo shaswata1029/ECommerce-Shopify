@@ -59,13 +59,13 @@ const Payment = () => {
     try {
       const config = {
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "text/plain",
         },
       };
 
       const { data } = await axios.post(
         `${serverLink}/api/v1/payment/process`,
-        paymentData,
+        JSON.stringify(paymentData),
         config
       );
 
