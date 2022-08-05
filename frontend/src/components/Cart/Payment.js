@@ -31,8 +31,6 @@ const Payment = () => {
   const elements = useElements();
   const payBtn = useRef(null);
 
-  const serverLink = "http://localhost:8000/api/v1";
-
   const { shippingInfo, cartItems } = useSelector((state) => state.cart);
   const { user } = useSelector((state) => state.user);
   const { error } = useSelector((state) => state.newOrder);
@@ -64,7 +62,7 @@ const Payment = () => {
       };
 
       const { data } = await axios.post(
-        `${serverLink}/payment/process`,
+        `/api/v1/payment/process`,
         paymentData,
         config
       );
