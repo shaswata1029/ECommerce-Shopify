@@ -20,6 +20,9 @@ app.use(upload.array());
 // Route Imports
 const rootRoute = require("./routes/rootRoute");
 
+app.get("/", () => {
+  console.log("Welcome to Backend");
+});
 app.use("/api/v1", rootRoute);
 
 // Middleware for error

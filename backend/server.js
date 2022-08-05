@@ -29,7 +29,7 @@ cloudinary.config({
 
 const PORT = process.env.PORT || 8000;
 const server = app.listen(PORT, () => {
-  console.log(`Server is listening to http://localhost:${PORT}`);
+  console.log(`Server is listening to PORT: ${PORT}`);
 });
 
 // Unhandled promise rejection
